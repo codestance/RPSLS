@@ -21,8 +21,8 @@ main >section{
 }
 
 .weapon{
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 4px solid white;
     padding: 0 20px;
@@ -30,8 +30,17 @@ main >section{
     cursor: pointer;
     transition: background-color .5s ease;
 }
+.weapon >img{
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+}
 .weapon:hover{
     background-color:#203636;
+}
+.fight{
+    width: 100px;
+    height: 100px;
 }
 .result{
     font-size: 32px;

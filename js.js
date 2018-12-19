@@ -7,8 +7,8 @@ const paperDiv = document.getElementById('paper');
 const scissorsDiv = document.getElementById('scissors');
 const lizardDiv = document.getElementById('lizard');
 const spockDiv = document.getElementById('spock');
-const userChoiceDiv = document.querySelector('.user-choice');
-const compChoiceDiv = document.querySelector('.comp-choice');
+const userChoiceDiv = document.querySelector('#user-choice');
+const compChoiceDiv = document.querySelector('#comp-choice');
 const resultDiv = document.querySelector('.result');
 
 
@@ -19,6 +19,28 @@ function getCompChoice(){
     return weapon;
 };
 
+const isItWin = {
+    rock : {
+        lizard: 'Rock crushes Lizard',
+        scissors:'Rock crushes Scissors'
+    },
+    paper: {
+        rock: 'Paper covers Rock',
+        spock: 'Paper disproves Spock'
+    },
+    scissors: {
+        paper: 'Scissors cuts Paper',
+        lizard: 'Scissors decapitates Lizard'
+    },
+    lizard: {
+        spock: 'Lizard poisons Spock',
+        paper: 'Lizard eats Paper'
+    },
+    spock: {
+        scissors: 'Spock smashes Scissors',
+        rock: 'Spock vaporizes Rock'
+    }
+}
 
 function game(userChoice){
     // userChoiceDiv.appendChildImg(userChoice);
@@ -26,55 +48,32 @@ function game(userChoice){
     const compChoice = getCompChoice();
     // compChoiceDiv.appendChildImg(compChoice);
     console.log('compChoice : '+ compChoice);
-    switch(userChoice+":"+compChoice){
-        case 'rock:rock':
-        case 'paper:paper':
-        case 'scissors:scissors':
-        case 'lizard:lizard':
-        case 'spock:spock':
-            console.log('It is a draw!');
-            break;
-        case 'rock:lizard':
-        case 'lizard:rock':
-            console.log('Rock crushes Lizard');
-            break;
-        case 'rock:scissors':
-        case 'scissors:rock':
-            console.log('Rock crushes Scissors');
-            break;
-        case 'paper:rock':
-        case 'rock:paper':
-            console.log('Paper covers Rock');
-            break;
-        case 'paper:spock':
-        case 'spock:paper':
-            console.log('Paper disproves Spock');
-            break;
-        case 'scicssors:paper':
-        case 'paper:scissors':
-            console.log('Scissors cuts Paper');
-            break;
-        case 'scissors:lizard':
-        case 'lizard:scissors':
-            console.log('Scissors decapitates Lizard');
-            break;
-        case 'lizard:spock':
-        case 'spock:lizard':
-            console.log('Lizard poisons Spock');
-            break;
-        case 'lizard:paper':
-        case 'paper:lizard':
-            console.log('Lizard eats Paper');
-            break;
-        case 'spock:scissors':
-        case 'scissors:spock':
-            console.log('Spock smashes Scissors');
-            break;
-        case 'spock:rock':
-        case 'rock:spock':
-            console.log('Spock vaporizes Rock');
-            break;
+    var msg;
+    if(userChoice===compChoice){
+        msg = 'It is a draw!';
+        userChoiceDiv.style.borderColor = "blue";
+        compChoiceDiv.style.borderColor = "blue";
+    }else{
+        msg = isItWin[userChoice][compChoice];
+        if (msg){
+            playerScore = playerScore+1;
+            playerScoreSpan.innerHTML=playerScore;
+            userChoiceDiv.style.borderColor = "green";
+            compChoiceDiv.style.borderColor = "red";
+        } else{
+            msg = isItWin[compChoice][userChoice];
+            compScore = compScore+1;
+            compScoreSpan.innerHTML=compScore;
+            compChoiceDiv.style.borderColor = "green";
+            userChoiceDiv.style.borderColor = "red";
+        }
     }
+    msg = document.createTextNode(msg);
+    if(resultDiv.firstChild){
+        resultDiv.removeChild(resultDiv.firstChild);
+    }
+    resultDiv.appendChild(msg);
+    
 }
 
 // function appendChildImg(e){
