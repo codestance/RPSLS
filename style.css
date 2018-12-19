@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Lekton|Press+Start+2P');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Lekton', sans-serif;
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+}
+header{
+    padding: 40px 0;
+}
+h1{
+    font-family: 'Press Start 2P';
+}
+main >section{
+    padding: 20px;
+}
+
+.weapon{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid white;
+    padding: 0 20px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color .5s ease;
+}
+.weapon:hover{
+    background-color:#203636;
+}
+.result{
+    font-size: 32px;
+    font-weight: bold;
+}
+.score-board{
+    border: 4px solid white;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 48px;
+    position: relative;
+    margin: 0 auto;
+}
+.score-board p{
+    position: absolute;
+    top: 10px;
+    font-size: 16px;
+    background: red;
+}
+#score-label_player{
+    left: -4px;
+}
+#score-label_comp{
+    right: -4px;
+}
