@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Lekton|Press+Start+2P');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Lekton', sans-serif;
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header{
+    padding: 2rem 0;
+}
+h1{
+    font-family: 'Press Start 2P';
+}
+main{
+    flex: 1;
+}
+main >section{
+    padding: 1.25rem;
+}
+.weapon{
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin: 0 .3rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color .5s ease;
+}
+.weapon >img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.weapon:hover{
+    background-color:#203636;
+}
+.fight{
+    width: 8rem;
+    height: 8rem;
+}
+.result{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.score-board{
+    border: 4px solid white;
+    border-radius: 4px;
+    width: 12rem;
+    font-size: 3rem;
+    position: relative;
+    margin: 0 auto;
+}
+.score-board p{
+    position: absolute;
+    top: 10px;
+    font-size: 1rem;
+    background: red;
+}
+#score-label_player{
+    left: -4px;
+}
+#score-label_comp{
+    right: -4px;
+}
+footer{
+    text-align: right;
+    padding: 0 5px;
+}
