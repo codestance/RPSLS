@@ -14,7 +14,7 @@ body{
     min-height: 100vh;
 }
 header{
-    padding: 2rem 0;
+    padding: 1rem 0 3rem 0;
 }
 h1{
     font-family: 'Press Start 2P';
@@ -23,7 +23,7 @@ main{
     flex: 1;
 }
 main >section{
-    padding: 1.25rem;
+    padding: 1rem 0;
 }
 .weapon{
     width: 5rem;
@@ -31,14 +31,15 @@ main >section{
     position: relative;
     border-radius: 50%;
     border: 4px solid white;
-    margin: 0 .3rem;
+    margin: 0 0.5rem;
     display: inline-block;
     cursor: pointer;
     transition: background-color .5s ease;
 }
 .weapon >img{
-    width: 100%;
+    width: 90%;
     height: auto;
+    max-height: 90%;
     position: absolute;
     margin: auto;
     top: 0;
@@ -49,18 +50,25 @@ main >section{
 .weapon:hover{
     background-color:#203636;
 }
+/* .match{
+
+} */
 .fight{
     width: 8rem;
     height: 8rem;
+    margin: 0 0.5rem;
+}
+#comp-choice{
+    background: transparent url(img/rpsls.svg) no-repeat;
 }
 .result{
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: bold;
 }
 .score-board{
     border: 4px solid white;
     border-radius: 4px;
-    width: 12rem;
+    width: 15rem;
     font-size: 3rem;
     position: relative;
     margin: 0 auto;
@@ -68,7 +76,7 @@ main >section{
 .score-board p{
     position: absolute;
     top: 10px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     background: red;
 }
 #score-label_player{
@@ -87,4 +95,20 @@ footer{
 footer a{
     color: white;
     text-decoration: none;
+}
+@media screen and (min-width: 360px){
+    main >section{
+        padding: 1rem .5rem;
+    }
+}
+@media screen and (min-width: 700px){
+    main >section{
+        padding: 1rem;
+    }
+    .weapon{
+        margin: 0 1rem;
+    }
+    header{
+        padding: 3rem 0;
+    }
 }
