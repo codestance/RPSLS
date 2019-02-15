@@ -15,6 +15,23 @@ function getCompChoice(){
     const weapon = weapons[Math.floor(Math.random()*weapons.length)];
     return weapon;
 };
+var tID;
+function compStop(){
+    clearInterval(tID);
+    compChoiceDiv.style.backgroundImage = "none";
+}
+function compWait(){
+    const p = [0, 140, 300, 460, 620];
+    let x= 0;
+    tID = setInterval(()=>{
+        if(x<p.length-1){
+            x=x+1;
+        }else{
+            x=0;
+        }
+        compChoiceDiv.style.backgroundPosition = `-${p[x]}px 0px`;
+    },200);
+}
 const isItWin = {
     rock : {
         lizard: 'Rock crushes Lizard',
@@ -74,19 +91,19 @@ function appendChildImg(d, i){
     var src;
     switch(i){
         case 'rock':
-            src = 'img/rock.png';
+            src = 'img/rock.svg';
             break;
         case 'paper':
-            src = 'img/paper.png';
+            src = 'img/paper.svg';
             break;
         case 'scissors':
-            src = 'img/scissors.png';
+            src = 'img/scissors.svg';
             break;
         case 'lizard':
-            src = 'img/lizard.png';
+            src = 'img/lizard.svg';
             break;
         case 'spock':
-            src = 'img/spock.png';
+            src = 'img/spock.svg';
             break;
     }
     if(d.firstChild){
@@ -96,20 +113,26 @@ function appendChildImg(d, i){
     d.appendChild(img);
 }
 function main(){
+    compWait()
     rockDiv.addEventListener('click', function(){
         game('rock');
+        compStop();
     })
     paperDiv.addEventListener('click', function(){
         game('paper');
+        compStop();
     })   
     scissorsDiv.addEventListener('click', function(){
         game('scissors');
+        compStop();
     })
     lizardDiv.addEventListener('click', function(){
         game('lizard');
+        compStop();
     })
     spockDiv.addEventListener('click', function(){
         game('spock');
+        compStop();
     })
 };
 main();
